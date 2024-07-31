@@ -16,8 +16,7 @@ LeitnerSystem = {"f1": 10, "f2": 8, "f3": 2, "f4": 4, "f5": 7, "f6": 5, "f7": 8,
 def datenverarbeiten(trainingszahlen):
     for i in range(len(trainingszahlen)):
         trainingszahlen[i] = int(trainingszahlen[i])
-    print(trainingszahlen)
-
+        
     global Spacedrepetition
     global blurtingmethod
     global Pomodorotechnique
@@ -39,7 +38,6 @@ def datenverarbeiten(trainingszahlen):
     differenz1 += math.fabs(trainingszahlen[7] - Spacedrepetition["f8"])
     differenz1 += math.fabs(trainingszahlen[8] - Spacedrepetition["f9"])
     differenz1 += math.fabs(trainingszahlen[9] - Spacedrepetition["f10"])
-    print(f"Spacedrepetition: {differenz1}")
 
     differenz2 = 0
     differenz2 += math.fabs(trainingszahlen[0] - blurtingmethod["f1"])
@@ -52,7 +50,6 @@ def datenverarbeiten(trainingszahlen):
     differenz2 += math.fabs(trainingszahlen[7] - blurtingmethod["f8"])
     differenz2 += math.fabs(trainingszahlen[8] - blurtingmethod["f9"])
     differenz2 += math.fabs(trainingszahlen[9] - blurtingmethod["f10"])
-    print(f"BlurtingMethod: {differenz2}")
 
     differenz3 = 0
     differenz3 += math.fabs(trainingszahlen[0] - Pomodorotechnique["f1"])
@@ -65,7 +62,6 @@ def datenverarbeiten(trainingszahlen):
     differenz3 += math.fabs(trainingszahlen[7] - Pomodorotechnique["f8"])
     differenz3 += math.fabs(trainingszahlen[8] - Pomodorotechnique["f9"])
     differenz3 += math.fabs(trainingszahlen[9] - Pomodorotechnique["f10"])
-    print(f"PomodoroTechnique: {differenz3}")
 
     differenz4 = 0
     differenz4 += math.fabs(trainingszahlen[0] - interleavedlearning["f1"])
@@ -78,7 +74,6 @@ def datenverarbeiten(trainingszahlen):
     differenz4 += math.fabs(trainingszahlen[7] - interleavedlearning["f8"])
     differenz4 += math.fabs(trainingszahlen[8] - interleavedlearning["f9"])
     differenz4 += math.fabs(trainingszahlen[9] - interleavedlearning["f10"])
-    print(f"InterleavedLearning: {differenz4}")
 
     differenz5 = 0
     differenz5 += math.fabs(trainingszahlen[0] - FeynmanTechnique["f1"])
@@ -91,7 +86,6 @@ def datenverarbeiten(trainingszahlen):
     differenz5 += math.fabs(trainingszahlen[7] - FeynmanTechnique["f8"])
     differenz5 += math.fabs(trainingszahlen[8] - FeynmanTechnique["f9"])
     differenz5 += math.fabs(trainingszahlen[9] - FeynmanTechnique["f10"])
-    print(f"FeynmanTechnique: {differenz5}")
 
     differenz6 = 0
     differenz6 += math.fabs(trainingszahlen[0] - TimeBlocking["f1"])
@@ -104,7 +98,6 @@ def datenverarbeiten(trainingszahlen):
     differenz6 += math.fabs(trainingszahlen[7] - TimeBlocking["f8"])
     differenz6 += math.fabs(trainingszahlen[8] - TimeBlocking["f9"])
     differenz6 += math.fabs(trainingszahlen[9] - TimeBlocking["f10"])
-    print(f"TimeBlocking: {differenz6}")
 
     differenz7 = 0
     differenz7 += math.fabs(trainingszahlen[0] - FiveMinuteRule["f1"])
@@ -117,7 +110,6 @@ def datenverarbeiten(trainingszahlen):
     differenz7 += math.fabs(trainingszahlen[7] - FiveMinuteRule["f8"])
     differenz7 += math.fabs(trainingszahlen[8] - FiveMinuteRule["f9"])
     differenz7 += math.fabs(trainingszahlen[9] - FiveMinuteRule["f10"])
-    print(f"FiveMinuteRule: {differenz7}")
 
     differenz8 = 0
     differenz8 += math.fabs(trainingszahlen[0] - ThreeTwoOneMethod["f1"])
@@ -130,7 +122,6 @@ def datenverarbeiten(trainingszahlen):
     differenz8 += math.fabs(trainingszahlen[7] - ThreeTwoOneMethod["f8"])
     differenz8 += math.fabs(trainingszahlen[8] - ThreeTwoOneMethod["f9"])
     differenz8 += math.fabs(trainingszahlen[9] - ThreeTwoOneMethod["f10"])
-    print(f"ThreeTwoOneMethod: {differenz8}")
 
     differenz9 = 0
     differenz9 += math.fabs(trainingszahlen[0] - LeitnerSystem["f1"])
@@ -143,7 +134,7 @@ def datenverarbeiten(trainingszahlen):
     differenz9 += math.fabs(trainingszahlen[7] - LeitnerSystem["f8"])
     differenz9 += math.fabs(trainingszahlen[8] - LeitnerSystem["f9"])
     differenz9 += math.fabs(trainingszahlen[9] - LeitnerSystem["f10"])
-    print(f"LeitnerSystem: {differenz9}")
+   
 
     dictionary = {
         "Spacedrepetition": differenz1, 
@@ -166,4 +157,4 @@ if __name__ == '__main__':
     argument_json = sys.argv[1]
     data = json.loads(argument_json)
     lernmethode = datenverarbeiten(data)
-    print(json.dumps(lernmethode))
+

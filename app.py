@@ -14,9 +14,13 @@ def serve_index():
 def execute_script():
     script_path = os.path.join(os.path.dirname(__file__), 'message.py')
     argument_json = json.dumps((request.json)["array"])
-    result = subprocess.run([sys.executable, script_path, argument_json], capture_output=True, text=True)
-    output = result.stdout
-    print(output)
+    result = subprocess.run([sys.executable, script_path, argument_json], 
+                            capture_output=True, 
+                            text=True)
+    output = result.stdout.strip()
+    if output == None:
+        print("fail")
+    print("2" + output + "2")
     return output
 
 if __name__ == '__main__':
