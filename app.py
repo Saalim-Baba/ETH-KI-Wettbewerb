@@ -16,7 +16,7 @@ def execute_script():
     argument_json = json.dumps((request.json)["array"])
     result = subprocess.run([sys.executable, script_path, argument_json], capture_output=True, text=True)
     output = result.stdout
-    print(output + "Sigma sigma on the weall whos the skibidiest of them all")
+    print(output)
     return output
 
 if __name__ == '__main__':
