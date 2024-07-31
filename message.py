@@ -16,7 +16,7 @@ LeitnerSystem = {"f1": 10, "f2": 8, "f3": 2, "f4": 4, "f5": 7, "f6": 5, "f7": 8,
 def datenverarbeiten(trainingszahlen):
     for i in range(len(trainingszahlen)):
         trainingszahlen[i] = int(trainingszahlen[i])
-        
+
     global Spacedrepetition
     global blurtingmethod
     global Pomodorotechnique
@@ -149,7 +149,7 @@ def datenverarbeiten(trainingszahlen):
     }
 
     beste_methode = min(dictionary, key=dictionary.get)
-    print(f"Beste Methode: {beste_methode}")
+    print(f"{beste_methode}")
 
     return beste_methode
 
