@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ideale Lernmethode Quiz</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        #progress {
+            height: 8px;
+            background: linear-gradient(to right, #4f46e5 0%, #3b82f6 100%);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-r from-blue-50 to-indigo-50 flex flex-col min-h-screen">
+    <header class="bg-indigo-600 text-white py-4 shadow-md">
+        <h1 class="text-3xl font-bold text-center">Finde deine ideale Lernmethode</h1>
+    </header>
+    <main class="flex-grow flex flex-col justify-center items-center px-4">
+        <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-2xl">
+            <div id="progressContainer" class="mb-6">
+                <div id="progress" class="w-0"></div>
+            </div>
+            <form id="quizForm" action="/submit" method="post">
+                <div id="questions">
+                    <div class="mb-6 question">
+                        <label class="block text-gray-700 text-lg font-medium">1. Wie gut können Sie sich an Informationen erinnern, wenn Sie sie regelmäßig in kurzen Abständen wiederholen?</label>
+                        <input type="range" name="frage1" min="1" max="10" value="5" class="mt-2 block w-full" oninput="this.nextElementSibling.value = this.value">
+                        <output class="block text-center mt-1">5</output>
+                    </div>
+                    <div class="mb-6 question hidden">
+                        <label class="block text-gray-700 text-lg font-medium">2. Haben Sie schon einmal versucht, Informationen laut zu wiederholen oder sofort nach dem Lernen zu testen?</label>
+                        <input type="range" name="frage2" min="1" max="10" value="5" class="mt-2 block w-full" oninput="this.nextElementSibling.value = this.value">
+                        <output class="block text-center mt-1">5</output>
+                    </div>
+                    <div class="mb-6 question hidden">
+                        <label class="block text-gray-700 text-lg font-medium">3. Wie lange können Sie sich konzentrieren, bevor Sie eine Pause benötigen?</label>
+                        <input type="range" name="frage3" min="1" max="10" value="5" class="mt-2 block w-full" oninput="this.nextElementSibling.value = this.value">
+                        <output class="block text-center mt-1">5</output>
+                    </div>
+                    <div class="mb-6 question hidden">
+                        <label class="block text-gray-700 text-lg font-medium">4. Wie gut können Sie zwischen verschiedenen Themen wechseln, ohne den Fokus zu verlieren?</label>
+                        <input type="range" name="frage4" min="1" max="10" value="5" class="mt-2 block w-full" oninput="this.nextElementSibling.value = this.value">
+                        <output class="block text-center mt-1">5</output>
+                    </div>
+                    <div class="mb-6 question hidden">
+                        <label class="block text-gray-700 text-lg font-medium">5. Wie gut können Sie ein Thema erklären, nachdem Sie es gelernt haben?</label>
+                        <input type="range" name="frage5" min="1" max="10" value="5" class="mt-2 block w-full" oninput="this.nextElementSibling.value = this.value">
+                        <output class="block text-center mt-1">5</output>
+                    </div>
+                    <div class="mb-6 question hidden">
+                        <label class="block text-gray-700 text-lg font-medium">6. Wie organisieren Sie Ihre Aufgaben und Lernzeiten am liebsten?</label>
+                        <input type="range" name="frage6" min="1" max="10" value="5" class="mt-2 block w-full" oninput="this.nextElementSibling.value = this.value">
+                        <output class="block text-center mt-1">5</output>
+                    </div>
+                    <div class="mb-6 question hidden">
+                        <label class="block text-gray-700 text-lg font-medium">7. Haben Sie Schwierigkeiten, mit dem Lernen zu beginnen, und wie überwinden Sie diese?</label>
+                        <input type="range" name="frage7" min="1" max="10" value="5" class="mt-2 block w-full" oninput="this.nextElementSibling.value = this.value">
+                        <output class="block text-center mt-1">5</output>
+                    </div>
+                    <div class="mb-6 question hidden">
+                        <label class="block text-gray-700 text-lg font-medium">8. Wie reagieren Sie auf feste Zeitblöcke für verschiedene Aufgaben oder Lerninhalte?</label>
+                        <input type="range" name="frage8" min="1" max="10" value="5" class="mt-2 block w-full" oninput="this.nextElementSibling.value = this.value">
+                        <output class="block text-center mt-1">5</output>
+                    </div>
+                    <div class="mb-6 question hidden">
+                        <label class="block text-gray-700 text-lg font-medium">9. Wie effektiv finden Sie es, verschiedene Lernmethoden gleichzeitig zu verwenden?</label>
+                        <input type="range" name="frage9" min="1" max="10" value="5" class="mt-2 block w-full" oninput="this.nextElementSibling.value = this.value">
+                        <output class="block text-center mt-1">5</output>
+                    </div>
+                    <div class="mb-6 question hidden">
+                        <label class="block text-gray-700 text-lg font-medium">10. Wie oft wiederholen Sie Lerninhalte, bevor Sie sie vollständig verstanden haben?</label>
+                        <input type="range" name="frage10" min="1" max="10" value="5" class="mt-2 block w-full" oninput="this.nextElementSibling.value = this.value">
+                        <output class="block text-center mt-1">5</output>
+                    </div>
+                </div>
+                <div class="flex justify-between mt-4">
+                    <button type="button" id="prevBtn" class="bg-gray-300 text-gray-700 py-2 px-4 rounded-md hidden">Zurück</button>
+                    <button type="button" id="nextBtn" class="bg-indigo-500 text-white py-2 px-4 rounded-md">Weiter</button>
+                    <button type="submit" id="submitBtn" class="bg-green-500 text-white py-2 px-4 rounded-md hidden">Ergebnis anzeigen</button>
+                </div>
+            </form>
+            <div id="result" class="mt-6 text-center text-lg font-medium"></div>
+        </div>
+    </main>
+    <footer class="bg-indigo-600 text-white py-4 mt-8">
+        <p class="text-center">© 2024 Lernmethode Quiz. Alle Rechte vorbehalten.</p>
+    </footer>
+
+    <script>
+        let currentQuestion = 0;
+        const questions = document.querySelectorAll('.question');
+        const nextBtn = document.getElementById('nextBtn');
+        const prevBtn = document.getElementById('prevBtn');
+        const submitBtn = document.getElementById('submitBtn');
+        const progress = document.getElementById('progress');
+
+        function updateProgress() {
+            const progressPercentage = (currentQuestion + 1) / questions.length * 100;
+            progress.style.width = progressPercentage + '%';
+        }
+
+        nextBtn.addEventListener('click', () => {
+            questions[currentQuestion].classList.add('hidden');
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                questions[currentQuestion].classList.remove('hidden');
+            }
+            if (currentQuestion === questions.length - 1) {
+                nextBtn.classList.add('hidden');
+                submitBtn.classList.remove('hidden');
+            }
+            if (currentQuestion > 0) {
+                prevBtn.classList.remove('hidden');
+            }
+            updateProgress();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            questions[currentQuestion].classList.add('hidden');
+            currentQuestion--;
+            if (currentQuestion >= 0) {
+                questions[currentQuestion].classList.remove('hidden');
+            }
+            if (currentQuestion < questions.length - 1) {
+                nextBtn.classList.remove('hidden');
+                submitBtn.classList.add('hidden');
+            }
+            if (currentQuestion === 0) {
+                prevBtn.classList.add('hidden');
+            }
+            updateProgress();
+            console.log()
+        });
+
+        document.getElementById('quizForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            let formData = new FormData(this);
+            let formArray = []
+            formData.forEach(function(value) {
+                formArray.push(value);
+            });
+            console.log(formArray);
+            fetch('http://127.0.0.1:5000/execute', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ array: formArray }),
+        })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error('Error:', error));
+            });
+
+        updateProgress();
+    </script>
+</body>
+</html>
