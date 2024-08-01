@@ -44,8 +44,9 @@ python app.py
 ```
 ## Sources
 Research for the technologies used and other important websites to understand everything are as followed:
-https://tailwindcss.com/
-https://eslint.org/
-https://flask.palletsprojects.com/en/3.0.x/quickstart/
-https://www.w3schools.com/
+- https://tailwindcss.com/
+- https://eslint.org/
+- https://flask.palletsprojects.com/en/3.0.x/quickstart/
+- https://www.w3schools.com/
+- 
 ---
