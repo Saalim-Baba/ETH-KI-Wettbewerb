@@ -3,7 +3,7 @@
 # KI-Wettbewerb
 
 ## Overview
-KI-Wettbewerb is a swiss contest where we build a AI and showcase it. We decided on an AI that can give you a evalution on the best learning method that suits you best. 
+KI-Wettbewerb is a swiss contest where we build an AI and showcase it. We decided on an AI that can give you a evalution on the best learning method that suits you best. 
 
 ## Contents
 - `.vscode/`: VS Code configurations.
