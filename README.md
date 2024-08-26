@@ -4,7 +4,10 @@
 
 ## Overview
 KI-Wettbewerb is a swiss contest where we build an AI and showcase it. We decided on an AI that can give you a evalution on the best learning method that suits you best. 
+## Developer Team
+Backend & Frontend: Saalim-Baba
 
+message.py: https://github.com/Tupfenschweif001 aka Alina
 ## Contents
 - `.vscode/`: VS Code configurations.
 - `public/`: Public assets.
